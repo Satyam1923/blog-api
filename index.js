@@ -19,7 +19,7 @@ const db = admin.firestore();
 const app = express();
 app.use(bodyParser.json());
 
-const PORT = 3000;
+const PORT = process.env.PORT;
 
 const authenticateToken = (req, res, next) => {
   const token = req.headers['authorization'];
