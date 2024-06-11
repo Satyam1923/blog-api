@@ -36,6 +36,7 @@ To get started with the API, follow these steps:
    npm start
 
 ## Authentication
+
 POST /token 
 
 Generate a JWT token for authenication.
@@ -54,7 +55,9 @@ Generate a JWT token for authenication.
 ```
 
 ## Blog Post
+
 For any CRUD operation authorization token header is required.
+
 ### Create a Post
 POST /posts
 
