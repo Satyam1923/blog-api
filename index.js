@@ -2,15 +2,18 @@ import express from "express";
 import bodyParser from "body-parser";
 import admin from "firebase-admin";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
 
 import serviceAccount from "./blog-post-d2781-firebase-adminsdk-nuoh5-3f12f39d53.json" assert { type: 'json' };
 
+dotenv.config();
+
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://blog-post-d2781.firebaseio.com'
+  databaseURL: process.env.FIREBASE_DATABASE_URL
 });
 
-const jwtSecret = "w=X;'2t-d)J*jVY7%'k?rm";
+const jwtSecret = process.env.JWT_SECRET;
 const db = admin.firestore();
 
 const app = express();
